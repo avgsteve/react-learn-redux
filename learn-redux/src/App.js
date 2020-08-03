@@ -1,6 +1,14 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import {
+  useSelector,  //get value from property from store
+  useDispatch  //set value with 'action' in property from store
+} from 'react-redux';
+
+import {
+  action_counterDecrement,
+  action_counteIncrement
+} from './actions/actions_for_counter';
 
 function App() {
 
@@ -10,6 +18,8 @@ function App() {
 
   const counter = useSelector(state => state.state_counter);  // the property name "state_counter" is made up inside the reducer (reducer_allCombined.js) used to create store in index.js
 
+  // ===== value from Redux store =====
+
   const isLoggedIn = useSelector(state => state.state_isLoggedIn);
 
   console.log('\nCurrent counter:', counter);
@@ -17,13 +27,18 @@ function App() {
   const currentState = useSelector(state => state);
   console.log('\nData in current state:', currentState);
 
+  // ===== Dispatch for Actions =====
+  // use 
+  const dispatch = useDispatch();
+  // ref: https://react-redux.js.org/api/hooks#usedispatch
+
+
   const counterStyle = {
     // 'fontWeight': '600',
     'fontSize': '1.5rem',
   };
 
   const buttonStyle = {
-    // 'fontWeight': '600',
     'fontSize': '1.5rem',
     'margin': '1rem',
   };
@@ -37,8 +52,14 @@ function App() {
       <span style={counterStyle}> {counter} </span>
 
         <span>
-          <button style={buttonStyle}> + </button>
-          <button style={buttonStyle}> - </button>
+
+          <button style={buttonStyle} onClick={
+            () => dispatch(action_counteIncrement(2))
+          }> + </button>
+
+          <button style={buttonStyle} onClick={
+            () => dispatch(action_counteDecrement(2))
+          }> - </button>
         </span>
 
       </p>
@@ -49,6 +70,6 @@ function App() {
       }</p>
     </div>
   );
-}
+};
 
 export default App;
