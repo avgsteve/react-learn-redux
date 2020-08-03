@@ -7,7 +7,8 @@ import {
 
 import {
   action_counterDecrement,
-  action_counterIncrement
+  action_counterIncrement,
+  action_setLoginState
 } from './actions/actions_for_counter';
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
 
   const counter = useSelector(state => state.state_counter);  // the property name "state_counter" is made up inside the reducer (reducer_allCombined.js) used to create store in index.js
 
-  // ===== value from Redux store =====
+
+  // ===== GET value with useSelector hook from Redux store =====
 
   const isLoggedIn = useSelector(state => state.state_isLoggedIn);
 
@@ -26,6 +28,7 @@ function App() {
 
   const currentState = useSelector(state => state);
   console.log('\nData in current state:', currentState);
+
 
   // ===== Dispatch for Actions =====
   // use 
@@ -65,9 +68,17 @@ function App() {
       </p>
 
 
-      <p>Current login state: {
-        `${isLoggedIn === true ? 'true' : 'false'}`
-      }</p>
+      <p>Current login state:
+       {
+          `${isLoggedIn === true ? 'true' : 'false'}`
+        }
+        <span>
+          <button style={buttonStyle} onClick={
+            () => dispatch(action_setLoginState(!isLoggedIn))
+          }> Swtich!
+          </button>
+        </span>
+      </p>
     </div>
   );
 };

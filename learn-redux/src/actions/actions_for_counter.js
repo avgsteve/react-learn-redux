@@ -13,3 +13,9 @@ export const action_counterIncrement = (multiplied_by) => {
         payload: multiplied_by
     };
 };
+
+export const action_setLoginState = () => {
+    return {
+        type: 'SET_LOGIN_STATE',
+    };
+};
