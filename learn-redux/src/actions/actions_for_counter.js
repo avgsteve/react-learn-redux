@@ -7,7 +7,7 @@ export const action_counterDecrement = (multiplied_by) => {
     };
 };
 
-export const action_counteIncrement = (multiplied_by) => {
+export const action_counterIncrement = (multiplied_by) => {
     return {
         type: 'INCREMENT',
         payload: multiplied_by

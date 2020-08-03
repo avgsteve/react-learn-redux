@@ -7,7 +7,7 @@ import {
 
 import {
   action_counterDecrement,
-  action_counteIncrement
+  action_counterIncrement
 } from './actions/actions_for_counter';
 
 function App() {
@@ -54,11 +54,11 @@ function App() {
         <span>
 
           <button style={buttonStyle} onClick={
-            () => dispatch(action_counteIncrement(2))
+            () => dispatch(action_counterIncrement(2))
           }> + </button>
 
           <button style={buttonStyle} onClick={
-            () => dispatch(action_counteDecrement(2))
+            () => dispatch(action_counterDecrement(2))
           }> - </button>
         </span>
 
