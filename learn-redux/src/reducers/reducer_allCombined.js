@@ -12,8 +12,8 @@ import {
 const reducers_all_combined = combineReducers({
 
     // the property "name" like "counter" & "isLoggedIn" is going to be shown and used in store and Redux devtool panel
-    counter: reducer_counter,
-    isLoggedIn: reducer_isLoggedIn
+    state_counter: reducer_counter,
+    state_isLoggedIn: reducer_isLoggedIn
 });
 // *** Importan: Then the method will return obj as a reducer which contains ALL REDUCERS and will be imported by index.js to create "store"
 

@@ -16,7 +16,7 @@ import reducers_all_combined from './reducers/reducer_allCombined';
 
 
 // 
-const dataStore = createStore(
+const data_from_store = createStore(
   reducers_all_combined, //the reducer obj imported from reducer_allCombined.js
 
   //second argument for using Redux devtools in Chrome
@@ -25,7 +25,7 @@ const dataStore = createStore(
 
 // With <Provide> and its prop "store", the child element ;like <App /> can access the global data from the store "dataStore"
 ReactDOM.render(
-  <Provider store={dataStore}>
+  <Provider store={data_from_store}>
     <App />
   </Provider>
   ,
